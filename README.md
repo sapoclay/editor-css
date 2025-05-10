@@ -1,4 +1,4 @@
-# Editor3s CSS Interactivos
+# Editor3s CSS interactivos
 
 Este proyecto está compuesto por dos versiones de un editor interactivo de CSS embebido en HTML. Está orientado a usuarios que quieran experimentar con estilos CSS directamente en el navegador y ver los resultados en tiempo real.
 
@@ -52,7 +52,7 @@ Editor CSS Avanzado (indexValidacion.html)
 
 Comienza a escribir o modificar el código CSS y observa los cambios en tiempo real.
 
-## ⚠️ Limitaciones y Consideraciones
+## ⚠️ Limitaciones y consideraciones
 
 - **Compatibilidad de CSSLint**: La validación de CSS funciona correctamente solo si `CSSLint` está disponible globalmente. Se recomienda usar la versión `1.0.5`, cargada antes de `css-lint.min.js`.
   
