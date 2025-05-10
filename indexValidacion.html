@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editor CSS con Validación</title>
+
+  <!-- CodeMirror Core CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css" />
+
+  <!-- Linting y Hint CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/lint/lint.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+    }
+
+    header, nav, main, footer {
+      padding: 20px;
+    }
+
+    nav ul {
+      padding: 0;
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav a {
+      color: #00ff99;
+      text-decoration: none;
+    }
+
+    #editor-container {
+      margin: 20px;
+    }
+
+    .CodeMirror {
+      height: 300px;
+      font-size: 16px;
+      border: 1px solid #333;
+      border-radius: 6px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #000;
+      color: #f00;
+    }
+
+    /* Estilos por defecto para la imagen y la tabla */
+    #demo-img {
+      display: block;
+      margin: 20px auto;
+      max-width: 300px;
+      border: 4px solid #555;
+    }
+
+    #demo-table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+
+    #demo-table th,
+    #demo-table td {
+      border: 1px solid #444;
+      padding: 8px 12px;
+      text-align: center;
+    }
+
+    #demo-table th {
+      background-color: #222;
+    }
+
+    #demo-table tr:nth-child(even) {
+      background-color: #1a1a1a;
+    }
+  </style>
+</head>
+<body>
+  <h1>Editor CSS con Autocompletado y Validación</h1>
+
+  <div id="editor-container">
+    <textarea id="css-editor">
+/* Estilos iniciales */
+h1 {
+  color: #ff0000;
+  text-align: center;
+}
+li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  text-decoration: none;
+  color: #01af0a;
+}
+body {
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  color: #FFFFFF;
+}
+#footer {
+  background: #000000;
+  color: #ff0000;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Ejemplo: estilos para imagen */
+#demo-img {
+  border-radius: 8px;
+}
+
+/* Ejemplo: estilos para tabla */
+#demo-table {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+    </textarea>
+  </div>
+
+  <style id="live-style"></style>
+  <h6>Activa el autocompletado (Ctrl+Espacio o al escribir propiedades css).</h6>
+  <header>
+    <h1>Un ejemplo para editar CSS</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#home">Inicio</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="home">
+      <h2>Esto sería el home</h2>
+      <p>Esto sería la sección home de este archivo html.</p>
+
+      <!-- Imagen de demostración -->
+      <img id="demo-img" src="https://entreunosyceros.net/wp-content/uploads/2016/03/logos.png" alt="Imagen de demostración">
+
+      <!-- Tabla de demostración -->
+      <table id="demo-table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Camisa</td>
+            <td>25€</td>
+            <td>14</td>
+          </tr>
+          <tr>
+            <td>Pantalón</td>
+            <td>40€</td>
+            <td>9</td>
+          </tr>
+          <tr>
+            <td>Chorreras</td>
+            <td>60€</td>
+            <td>5</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="about">
+      <h2>Sección About</h2>
+      <p>Esta sería la sección about de esta página</p>
+    </section>
+
+    <section id="contact">
+      <h2>Sección contacto</h2>
+      <p>Sección contacto de esta página de ejemplo.</p>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <p>Creado en 2025</p>
+  </footer>
+
+  <!-- CodeMirror Core JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+
+  <!-- CSS Mode -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+
+  <!-- Lint Addons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/lint/lint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/lint/css-lint.min.js"></script>
+
+  <!-- Autocompletado -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/css-hint.min.js"></script>
+
+  <!-- CSSLint (versión compatible con CodeMirror) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/csslint/1.0.5/csslint.min.js"></script>
+
+  <script>
+    // Asegurarse de que CSSLint esté disponible en el ámbito global
+    window.CSSLint = CSSLint;
+
+    const editor = CodeMirror.fromTextArea(document.getElementById("css-editor"), {
+      mode: "css",
+      theme: "dracula",
+      lineNumbers: true,
+      lineWrapping: true,
+      autoCloseBrackets: true,
+      lint: true,
+      gutters: ["CodeMirror-lint-markers"],
+      extraKeys: {
+        "Ctrl-Space": "autocomplete"
+      }
+    });
+
+    editor.on("change", () => {
+      document.getElementById("live-style").textContent = editor.getValue();
+    });
+
+    // Aplica los estilos iniciales al cargar
+    document.getElementById("live-style").textContent = editor.getValue();
+  </script>
+</body>
+</html>
