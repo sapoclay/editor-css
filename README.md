@@ -6,9 +6,13 @@ Este proyecto está compuesto por dos versiones de un editor interactivo de CSS 
 
 ### lanzador.html
 
+![lanzador](https://github.com/user-attachments/assets/80d20b6f-05d6-4ce2-ad43-7d80a013c820)
+
 Archivo de inicio del proyecto. Solo presenta botones para acceder a cualquiera de las dos versiones anteriores de forma rápida.
 
 ### index.html
+
+![editor-css](https://github.com/user-attachments/assets/90ae63ec-ae1a-4566-80cb-4017a20fbe54)
 
 Una versión básica del editor que permite modificar el contenido CSS directamente dentro de una etiqueta <style> con contenteditable="true". Las modificaciones se aplican inmediatamente sobre los elementos de la página sin necesidad de recargar.
 
@@ -19,6 +23,8 @@ Una versión básica del editor que permite modificar el contenido CSS directame
 ❌ Sin validación ni autocompletado
 
 ### indexValidacion.html
+
+![editor-css-avanzado](https://github.com/user-attachments/assets/ed53a1ff-9cb4-4100-9c81-5cd9f605b431)
 
 Una versión un poco más avanzada que utiliza CodeMirror para proporcionar:
 
